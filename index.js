@@ -21,11 +21,11 @@ class Nautic {
     })
   }
 
-  async findContact({ storeId }) {
+  async findContact({ param, value }) {
     const { apiUrl, authorization } = this
 
     return await request({
-      uri: `${apiUrl}/contacts?search=store_id:${storeId}`,
+      uri: `${apiUrl}/contacts?search=${param}:${value}`,
       headers: {
         Authorization: `Basic ${authorization}`
       },
