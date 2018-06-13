@@ -28,7 +28,8 @@ class Nautic {
       uri: `${apiUrl}/contacts?search=store_id:${storeId}`,
       headers: {
         Authorization: `Basic ${authorization}`
-      }
+      },
+      json: true
     })
   }
 
