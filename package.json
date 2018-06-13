@@ -1,0 +1,31 @@
+{
+  "name": "nautic",
+  "version": "1.0.0",
+  "description": "Node.js library for the Mautic REST API",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ynnoj/nautic.git"
+  },
+  "author": "Jonathan Steele <jonathan@steele.pro>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "husky": "^1.0.0-rc.8",
+    "prettier": "^1.13.5",
+    "pretty-quick": "^1.6.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+  }
+}
