@@ -8,7 +8,11 @@ class Nautic {
     )}`
   }
 
-  async createContact({ body }) {
+  static isRequired(param) {
+    throw new Error(`${param} is required`)
+  }
+
+  async createContact({ body = this.constructor.isRequired('body') }) {
     const { apiUrl, authorization } = this
 
     return await request.post({
@@ -21,7 +25,10 @@ class Nautic {
     })
   }
 
-  async findContact({ param, value }) {
+  async findContact({
+    param = this.constructor.isRequired('param'),
+    value = this.constructor.isRequired('value')
+  }) {
     const { apiUrl, authorization } = this
 
     return await request({
@@ -33,7 +40,7 @@ class Nautic {
     })
   }
 
-  async updateContact({ id, ...rest }) {
+  async updateContact({ id = this.constructor.isRequired('id'), ...rest }) {
     const { apiUrl, authorization } = this
 
     return await request.patch({
