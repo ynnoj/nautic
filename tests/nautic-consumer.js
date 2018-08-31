@@ -17,6 +17,10 @@ export default class NauticConsumer {
     this.nautic.findContact({ param: 'name', value: 'Ron Swanson' })
   }
 
+  getRonSwansonContact() {
+    this.nautic.getContact({ id: '1' })
+  }
+
   updateRonSwansonContact() {
     this.nautic.updateContact({ id: '1', company: 'Pawnee City Council' })
   }
