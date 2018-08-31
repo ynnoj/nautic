@@ -16,7 +16,8 @@
   "devDependencies": {
     "husky": "^1.0.0-rc.8",
     "prettier": "^1.13.5",
-    "pretty-quick": "^1.6.0"
+    "pretty-quick": "^1.6.0",
+    "semantic-release": "^15.9.12"
   },
   "husky": {
     "hooks": {
