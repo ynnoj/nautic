@@ -42,6 +42,23 @@ it('Check if the consumer called the findContact method on the class instance', 
   expect(mockFindContact).toHaveBeenCalledTimes(1)
 })
 
+it('Check if the consumer called the getContact method on the class instance', () => {
+  expect(Nautic).not.toHaveBeenCalled()
+
+  const nauticConsumer = new NauticConsumer()
+  expect(Nautic).toHaveBeenCalledTimes(1)
+
+  nauticConsumer.getRonSwansonContact()
+
+  const [mockNauticInstance] = Nautic.mock.instances
+  const mockGetContact = mockNauticInstance.getContact
+
+  expect(mockGetContact).toHaveBeenCalledWith({
+    id: '1'
+  })
+  expect(mockGetContact).toHaveBeenCalledTimes(1)
+})
+
 it('Check if the consumer called the updateContact method on the class instance', () => {
   expect(Nautic).not.toHaveBeenCalled()
 
