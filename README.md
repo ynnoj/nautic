@@ -1,5 +1,7 @@
 # Nautic 🐙
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ynnoj/nautic.svg)](https://greenkeeper.io/)
+
 > Node.js library for the [Mautic](https://www.mautic.org) REST API
 
 ## Usage
