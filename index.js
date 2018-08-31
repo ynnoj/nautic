@@ -40,6 +40,18 @@ class Nautic {
     })
   }
 
+  async getContact({ id = this.constructor.isRequired('id') }) {
+    const { apiUrl, authorization } = this
+
+    return await request({
+      uri: `${apiUrl}/contacts/${id}`,
+      headers: {
+        Authorization: `Basic ${authorization}`
+      },
+      json: true
+    })
+  }
+
   async updateContact({ id = this.constructor.isRequired('id'), ...rest }) {
     const { apiUrl, authorization } = this
 
