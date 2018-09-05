@@ -66,6 +66,77 @@ class Nautic {
       json: true
     })
   }
+
+  async addContactToStage({
+    contactId = this.constructor.isRequired('contactId'),
+    stageId = this.constructor.isRequired('stageId')
+  }) {
+    const { apiUrl, authorization } = this
+
+    return await request.post({
+      uri: `${apiUrl}/stages/${stageId}/contact/${contactId}/add`,
+      headers: {
+        Authorization: `Basic ${authorization}`
+      },
+      json: true
+    })
+  }
+
+  async doNotContactViaChannel({
+    id = this.constructor.isRequired('id'),
+    type = this.contructor.isRequired('type')
+  }) {
+    const { apiUrl, authorization } = this
+
+    return await request.post({
+      uri: `${apiUrl}/contacts/${id}/dnc/add/${type}`,
+      headers: {
+        Authorization: `Basic ${authorization}`
+      },
+      body: {
+        channel: type
+      },
+      json: true
+    })
+  }
+
+  async createUser({
+    username = this.constructor.isRequired('username'),
+    plainPassword = this.constructor.isRequired('plainPassword'),
+    role = this.constructor.isRequired('role'),
+    contactInfo = this.constructor.isRequired('contactInfo')
+  }) {
+    const { apiUrl, authorization } = this
+
+    return await request.post({
+      uri: `${apiUrl}/users/new`,
+      headers: {
+        Authorization: `Basic ${authorization}`
+      },
+      body: {
+        username,
+        role,
+        plainPassword,
+        ...contactInfo
+      },
+      json: true
+    })
+  }
+
+  async findUser({
+    param = this.constructor.isRequired('param'),
+    value = this.constructor.isRequired('value')
+  }) {
+    const { apiUrl, authorization } = this
+
+    return await request({
+      uri: `${apiUrl}/users?search=${param}:${value}`,
+      headers: {
+        Authorization: `Basic ${authorization}`
+      },
+      json: true
+    })
+  }
 }
 
 module.exports = Nautic

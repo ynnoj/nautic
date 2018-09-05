@@ -24,4 +24,32 @@ export default class NauticConsumer {
   updateRonSwansonContact() {
     this.nautic.updateContact({ id: '1', company: 'Pawnee City Council' })
   }
+
+  addRonSwansonContactStage() {
+    this.nautic.addContactToStage({ contactId: '1', stageId: '1' })
+  }
+
+  doNotContactRonSwanson() {
+    this.nautic.doNotContactViaChannel({ id: '1', type: 'email' })
+  }
+
+  createAndyDwyer() {
+    this.nautic.createUser({
+      username: 'Burt Macklin',
+      role: '1',
+      plainPassword: 'network-connectivity-problems',
+      contactInfo: {
+        firstname: 'Andy',
+        lastname: 'Dwyer',
+        email: 'andyd@pawnee.in.gov'
+      }
+    })
+  }
+
+  findAndyDwyer() {
+    this.nautic.findUser({
+      param: 'email',
+      value: 'andyd@pawnee.in.gov'
+    })
+  }
 }
